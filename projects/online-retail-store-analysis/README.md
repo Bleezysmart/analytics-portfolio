@@ -1,3 +1,5 @@
+![Online Retail dashboard](../../images/Retail%20Dashboard%20Edit.png)
+
 # Online Retail Store Analysis
 
 **Revenue Leakage & Retail Performance**
