@@ -1,3 +1,5 @@
+![OmniStep dashboard](../../images/OmniStep%20Executive%20Sales%20Overview.png)
+
 # OmniStep Global Footwear Analytics
 
 **Power BI Business Intelligence Case Study · July 2026**
