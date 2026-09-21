@@ -1,3 +1,5 @@
+![Salient Ventures dashboard](../../images/Salient%20Ventures%20DashBoard.png)
+
 # Salient Ventures
 
 **Q4 Sales Performance Analysis**
