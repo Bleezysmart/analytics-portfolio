@@ -1,3 +1,5 @@
+![SDG 7 dashboard](../../images/SDG7%20Dashboard.png)
+
 # Sub-Saharan Africa Energy Access & Sustainability — SDG 7
 
 **Powering Sub-Saharan Africa**
