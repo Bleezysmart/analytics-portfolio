@@ -1,3 +1,5 @@
+![Netflix dashboard](../../images/Netflix%20Dashboard.png)
+
 # Netflix Content Analytics
 
 **Content Library & Acquisition Strategy**
