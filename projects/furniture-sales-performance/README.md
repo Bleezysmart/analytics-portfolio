@@ -1,3 +1,5 @@
+![Furniture Sales dashboard](../../images/Furniture%20Sales%20Dashboard.png)
+
 # Furniture Sales Performance Analysis
 
 **Excel Business Intelligence & Profitability Case Study**
