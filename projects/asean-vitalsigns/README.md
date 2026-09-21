@@ -1,3 +1,5 @@
+![ASEAN VitalSigns dashboard](../../images/ASEAN%20Health%20Analytics%20Dashboard.png)
+
 # ASEAN VitalSigns
 
 **Public Health Decision-Making Across ASEAN · SDG 3**
