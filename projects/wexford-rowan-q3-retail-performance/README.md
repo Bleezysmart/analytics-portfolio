@@ -1,3 +1,5 @@
+![Wexford & Rowan dashboard](../../images/Wexford%20%26%20Rowan%20Dashboard%20(Light%20Mode).png)
+
 # Wexford & Rowan — Q3 Retail Performance Analysis
 
 **Excel Business Intelligence Case Study · Q3 2025**
