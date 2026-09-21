@@ -1,3 +1,5 @@
+![Finovia loan operations dashboard](../../images/Loan%20Operations%20Dashboard.png)
+
 # Finovia Global Finance Loan Portfolio Analysis
 
 **Power BI Financial Analytics Case Study · 2026**
