@@ -1,3 +1,5 @@
+![Deskify dashboard](../../images/Deskify%20Office%20Sales%20Performance%20DashBoard.png)
+
 # Deskify Office Supply
 
 **Business Intelligence & Profitability Analysis**
