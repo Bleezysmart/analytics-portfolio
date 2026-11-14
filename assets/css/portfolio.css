@@ -595,3 +595,85 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
 }
+
+
+/* Financial model feature visual */
+.model-preview {
+  display: flex;
+  min-height: 260px;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  text-decoration: none;
+  background: linear-gradient(145deg, #172c25 0%, #263e33 58%, #3a4737 100%);
+  color: #f4eee2;
+}
+.model-preview-inner {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-height: 260px;
+  padding: clamp(24px, 4vw, 42px);
+  overflow: hidden;
+}
+.model-preview-inner::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  right: -75px;
+  top: -90px;
+  border: 1px solid rgba(230,207,152,.28);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgba(230,207,152,.04), 0 0 0 50px rgba(230,207,152,.035);
+}
+.model-kicker {
+  color: #e6cf98;
+  font-size: .64rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.model-preview-inner strong {
+  color: #f4eee2;
+  font-family: Georgia, serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: 1;
+}
+.model-preview-inner > span:not(.model-kicker) {
+  color: #d4d0c4;
+  font-size: .8rem;
+}
+.model-bars {
+  display: flex;
+  align-items: end;
+  gap: 9px;
+  height: 62px;
+  max-width: 230px;
+  margin-top: 8px;
+  border-bottom: 1px solid rgba(230,207,152,.35);
+}
+.model-bars i {
+  display: block;
+  flex: 1;
+  height: 30%;
+  background: linear-gradient(180deg, #e6cf98, rgba(230,207,152,.24));
+  border-radius: 2px 2px 0 0;
+}
+.model-bars i:nth-child(2) { height: 42%; }
+.model-bars i:nth-child(3) { height: 56%; }
+.model-bars i:nth-child(4) { height: 76%; }
+.model-bars i:nth-child(5) { height: 100%; }
+.model-preview-inner small {
+  color: #c8c1b4;
+  font-size: .68rem;
+}
+a.model-preview:hover .model-bars i { filter: brightness(1.2); }
+@media (prefers-reduced-motion: no-preference) {
+  .model-bars i { transition: filter .25s ease, transform .25s ease; }
+  a.model-preview:hover .model-bars i { transform: translateY(-3px); }
+}
