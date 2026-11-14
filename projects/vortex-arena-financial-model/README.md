@@ -50,6 +50,19 @@ The scenario framework tests how changes in demand and cost conditions affect pr
 - Cash generation and the Balance Sheet are reviewed alongside profitability.
 - The scenario analysis highlights downside and upside sensitivity.
 
+## Decision questions the model is designed to support
+- What revenue is implied by the arena's capacity, pricing and occupancy assumptions?
+- How sensitive are profitability and cash generation to weaker demand or higher costs?
+- Do projected earnings translate into cash, and how does the financial position evolve over the forecast period?
+- What does the base case indicate about the economics of operating one arena?
+
+The model provides a structured way to test these questions. It does not establish that the business will achieve the forecast, and it does not prove that expansion is viable.
+
+## Model review and interpretation
+The analysis connects the operating assumptions to the revenue build-up, expenses, projected financial statements and scenario outputs. Profitability is considered alongside closing cash and the projected balance sheet so that the assessment is not based on revenue or EBITDA alone.
+
+**Interpretation boundary:** all headline outputs are forecasts for a fictional business. They depend on the stated assumptions and should be treated as model outputs rather than observed performance or a funding recommendation.
+
 ## Tools and methods
 **WPS Spreadsheet · Financial Modelling · Integrated Financial Statements · Financial Ratio Analysis · Scenario Analysis**
 
