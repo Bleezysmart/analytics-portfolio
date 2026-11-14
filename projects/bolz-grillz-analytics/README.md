@@ -37,6 +37,27 @@ A Redflames unit-level reconciliation recorded:
 
 The Redflames revenue reconciliation difference was ₦0. The figures above are specific to that unit-level analysis and should not be interpreted as totals for the entire business.
 
+## How the analysis supports management questions
+The five reporting workstreams organise the dataset around practical operating questions:
+
+| Management question | Analytical view |
+|---|---|
+| How is the business performing overall? | Executive Overview |
+| Which products and sales channels contribute to results? | Sales & Product Performance |
+| What does customer activity and repeat purchasing look like? | Customer Intelligence |
+| How does workforce activity relate to operations? | Team & Staff Performance |
+| How do business units, inventory and expenses compare? | Branch & Operational Performance |
+
+The Redflames example provides a unit-level illustration of reconciliation: gross sales less discounts equals net revenue, and the stated net revenue less cost of goods sold equals gross profit. The reconciliation difference was ₦0. These figures apply to Redflames only and are not presented as consolidated business totals.
+
+## Analytical controls and interpretation
+- Keep business-unit figures separate from company-wide totals.
+- Reconcile gross sales, discounts, net revenue and cost of goods sold before interpreting gross profit.
+- Treat customer, product, inventory, employee and expense records as distinct analytical entities connected through the data model.
+- Use the reporting views to identify where further investigation may be required; do not infer causation from descriptive patterns alone.
+
+The project describes the structure of the analysis and selected reconciled outputs. It does not claim quantified improvements in sales, margin or operating efficiency.
+
 ## Tools and methods
 **PostgreSQL · SQL · Power BI · Data Modelling · Data Reconciliation · Commercial Analytics**
 
