@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 <header class="site-nav">
   <a class="brand" href="#top"><span class="brand-mark">I</span> IBRAHEEM IBRAHEEM</a>
   <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -98,6 +99,21 @@
           <h2>17 investigations.<br>Different questions.</h2>
         </div>
         <p>Each project starts with a specific question and follows the evidence to a useful conclusion — across financial research, business intelligence, market analysis and data analytics.</p>
+      </div>
+
+      <div class="project-tools reveal" aria-label="Filter selected projects">
+        <label class="project-search-wrap">
+          <span class="sr-only">Search projects</span>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="project-search" type="search" placeholder="Search projects, tools or topics…" autocomplete="off">
+        </label>
+        <div class="project-filters" role="group" aria-label="Project categories">
+          <button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">All work <span>17</span></button>
+          <button class="filter-chip" type="button" data-filter="financial" aria-pressed="false">Financial</button>
+          <button class="filter-chip" type="button" data-filter="research" aria-pressed="false">Research</button>
+          <button class="filter-chip" type="button" data-filter="bi" aria-pressed="false">Business intelligence</button>
+        </div>
+        <p class="project-results" id="project-results" aria-live="polite">Showing all 17 projects</p>
       </div>
 
       <div class="project-grid reveal">
@@ -373,6 +389,42 @@
           </div>
         </a>
 
+
+        <a class="project-card" href="https://github.com/Bleezysmart/analytics-portfolio/tree/main/projects/vortex-arena-financial-model" target="_blank" rel="noopener">
+          <div class="project-card-head">
+            <div><span class="project-no">16</span><span class="project-type">Financial Modelling</span></div>
+            <span class="project-arrow">↗</span>
+            <h3>Vortex Arena Financial Model</h3>
+            <p>Can a single paintball arena in Lagos generate sustainable cash flow and support future expansion?</p>
+          </div>
+          <div class="project-card-body">
+            <div class="project-stats">
+              <div><strong>₦175.4M</strong><span>2031 revenue</span></div>
+              <div><strong>₦72.8M</strong><span>2031 EBITDA</span></div>
+              <div><strong>5 years</strong><span>Forecast</span></div>
+            </div>
+            <div class="project-tags"><span>Excel</span><span>Financial Modelling</span><span>Scenario Analysis</span></div>
+            <span class="project-link">View case study →</span>
+          </div>
+        </a>
+
+        <a class="project-card" href="https://github.com/Bleezysmart/analytics-portfolio/tree/main/projects/bolz-grillz-analytics" target="_blank" rel="noopener">
+          <div class="project-card-head">
+            <div><span class="project-no">17</span><span class="project-type">Business Intelligence</span></div>
+            <span class="project-arrow">↗</span>
+            <h3>Bolz Grillz Business Intelligence</h3>
+            <p>What do sales, product, customer, inventory and operating data reveal across a multi-unit grill business?</p>
+          </div>
+          <div class="project-card-body">
+            <div class="project-stats">
+              <div><strong>12K</strong><span>Orders</span></div>
+              <div><strong>27K</strong><span>Order lines</span></div>
+              <div><strong>3</strong><span>Business units</span></div>
+            </div>
+            <div class="project-tags"><span>PostgreSQL</span><span>SQL</span><span>Power BI</span></div>
+            <span class="project-link">View case study →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -509,10 +561,67 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const cards = [...document.querySelectorAll('.project-card')];
+  const search = document.getElementById('project-search');
+  const filterButtons = [...document.querySelectorAll('.filter-chip')];
+  const resultsLabel = document.getElementById('project-results');
+  let activeFilter = 'all';
+
+  cards.forEach(card => {
+    const type = (card.querySelector('.project-type')?.textContent || '').toLowerCase();
+    const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+    let category = 'bi';
+    if (/financial|modelling|valuation/.test(type + ' ' + title)) category = 'financial';
+    else if (/market|research|sports|energy/.test(type + ' ' + title)) category = 'research';
+    card.dataset.category = category;
+  });
+
+  function filterProjects() {
+    const query = (search?.value || '').trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const matchesSearch = !query || card.textContent.toLowerCase().includes(query);
+      const show = matchesCategory && matchesSearch;
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    if (resultsLabel) resultsLabel.textContent = visible === cards.length && activeFilter === 'all' && !query
+      ? 'Showing all 17 projects'
+      : 'Showing ' + visible + ' of 17 projects';
+  }
+  search?.addEventListener('input', filterProjects);
+  filterButtons.forEach(button => button.addEventListener('click', () => {
+    activeFilter = button.dataset.filter;
+    filterButtons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
+    filterProjects();
+  }));
+
+  const progressBar = document.getElementById('reading-progress-bar');
+  function updateProgress() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+    if (progressBar) progressBar.style.width = progress + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => document.querySelector('.nav-links')?.classList.remove('open'));
+  });
 </script>
 </body>
 </html>
